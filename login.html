@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav {
+            display: flex;
+            justify-content: space-around;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            height: 70px;
+            align-items: center;
+        }
+
+        #nav a {
+            text-decoration: none;
+            font-size: larger;
+            color: black;
+        }
+
+        #nav a:hover {
+            text-decoration: underline;
+            text-transform: uppercase;
+            /* font-style: oblique; */
+            color: rgb(46, 148, 236);
+        }
+
+        #admin-login {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+
+        }
+
+        #admin-login form {
+            width: 50%;
+            padding: 10px;
+            margin: auto;
+            display: grid;
+            margin-top: 30px;
+            gap: 20px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+
+        form input {
+            padding: 6px;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+
+        #login-btn {
+            width: 40%;
+            margin: auto;
+            background-color: lightseagreen;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: #ffffff94;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav id="nav">
+        <h1>🏫 Library Management System 📚</h1>
+    </nav>
+
+    <div id="admin-login">
+        <h1>Please Login</h1>
+        <form action="">
+            <input placeholder="Email" type="email" id="email" />
+            <input type="password" name="password" id="password" placeholder="Password">
+            <button id="login-btn">Login</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    let form = document.querySelector("form");
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault()
+
+        let email = form.email.value;
+        let password = form.password.value
+
+        let loginObj = {
+            email,
+            password
+        }
+
+        try {
+            let res = await fetch("https://reqres.in/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(loginObj)
+            })
+            let data = await res.json()
+            if (data.token) {
+                alert("Login Successfull")
+                localStorage.setItem("token", data.token)
+                window.location.href = "./index.html"
+            } else {
+                alert("Please Privode Right Credentials")
+            }
+        } catch (err) {
+            console.log(err);
+        }
+
+    })
+</script>
