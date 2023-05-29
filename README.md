@@ -33,33 +33,6 @@ npm run watch
 └── styles
     └── style.css
 ```
-## Maximum Marks - 15
-
-- The Submission should not contain spaces, for example /rct-101 folder/eval will not work
-- Do not push node_modules and package_lock.json to GitHub
-
-## Rubrics
-```
-✅ able to submit the app - 1 mark ( minimum score )
-✅ Shows the correct initial data - 3 marks 
-✅ Able to add new book - 2 marks
-✅ Able to delete a book - 2 marks
-✅ Able to edit all fields of the book - 2 marks
-✅ Able to edit the price - 1 mark
-✅ Sorts as expected - 1 mark
-✅ Filters as expected - 1 mark
-✅ Able to search by title - 1 mark
-✅ Able to search by the author - 1 mark
-```
-### You haven't been taught Cypress to run the test cases locally, you can see the passed/ failed test cases and test errors on CP itself.
-
-
-## Some Rules to follow:-
-
-- Before writing a single line of code please read the problem statement very carefully.
-- Don't change the already given ids or classes.
-- If you don't follow these rules you might not get any marks even if you do everything correctly.
-
 # Problem statements
 
 ### Problem 1. List of books on page load [3]
@@ -196,10 +169,3 @@ You may use any approach of your choice for search functionality. You may use th
 ***Note***:- Get the updated data from API after POST,PATCH or DELETE request is done.
 
 
-### General guidelines
-
-- The system on cp.masaischool.com may take between 1-20 minutes for responding,
-- so we request you to read the problem carefully and debug it before itself
-- we also request you not just submit it last minute
-- try to keep one submission at a time
-- Use `${baseServerURL}/what-ever-route` for server url & not `localhost:9090/what-ever-route` in your solution. Failing to do so may cause all the tests to fail.
